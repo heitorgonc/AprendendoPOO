@@ -1,6 +1,6 @@
 <h1 align="center">Aprendendo POO</h1>
 
-<p align="center">Encapsulamento, herança, sobreposição, sobrecarga, polimorfismo e interface</p>
+<p align="center">Abstração, encapsulamento, herança, sobreposição, sobrecarga, polimorfismo e interface</p>
 
 <p align="center">
  <a href="#preRequisitos">Pré Requisitos</a> •
@@ -11,6 +11,7 @@
 
 <h3>Conceitos usados</h3>
 
+- [X] Abstração
 - [X] Encapsulamento
 - [X] Herança
 - [X] Sobreposição
