@@ -1,7 +1,7 @@
 package com.lojaLivros.manga;
 
-import com.lojaLivros.Colecao;
-import com.lojaLivros.LivroInterface;
+import com.lojaLivros.modelos.Colecao;
+import com.lojaLivros.modelos.LivroInterface;
 
 public class Manga  extends Colecao implements LivroInterface{
 	
@@ -9,8 +9,11 @@ public class Manga  extends Colecao implements LivroInterface{
 		super(nome, tamanhoLista);
 	}
 	
-	public double venderLivroDesconto(double desconto) {
-		return this.exibirValorTotalDesconto(desconto);
+	public float venderLivroDesconto(double desconto) {
+		this.apresentarColecao();
+		final float resultado = this.exibirValorTotalDesconto(desconto);
+		System.out.println("Valor do manga com desconto: "+resultado);
+		return resultado;
 	}
 	
 }
