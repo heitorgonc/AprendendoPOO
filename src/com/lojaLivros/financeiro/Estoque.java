@@ -1,21 +1,18 @@
 package com.lojaLivros.financeiro;
 
-import com.lojaLivros.LivroInterface;
+import com.lojaLivros.modelos.LivroInterface;
 
 public class Estoque {
 	
-	private double saldo;
+	private float saldo;
 	
-	public Estoque(double saldo) {
-		this.saldo = saldo;
-	}
-	
-	public double exibirSaldo(){
-		return saldo;
+	public Estoque(String saldo) {
+		this.saldo = Float.parseFloat(saldo);
 	}
 	
 	public void venderDesconto(LivroInterface livro, double desconto) {
-		saldo = saldo + livro.venderLivroDesconto(desconto);
+		saldo += livro.venderLivroDesconto(desconto);
+		System.out.println("Saldo atual da loja: "+saldo);
 	}
 
 }
