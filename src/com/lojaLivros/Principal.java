@@ -1,27 +1,28 @@
 package com.lojaLivros;
 
-import com.lojaLivros.manga.Volume;
-import com.lojaLivros.manga.Manga;
-import com.lojaLivros.financeiro.Estoque;
-import com.lojaLivros.hq.Hq;
+import com.lojaLivros.modelos.Hq;
+import com.lojaLivros.modelos.Manga;
+import com.lojaLivros.modelos.Volume;
+import com.lojaLivros.servicos.ControlaColecao;
+import com.lojaLivros.servicos.ControlaSaldo;
 
 public class Principal {
 
 	public static void main(String[] args) {
 		Manga mangaNaruto = new Manga("Naruto", 20);
-		Volume naruto1 = new Volume(mangaNaruto, "Naruto conhece a vila","Kishimoto",25,"15.20");
-		Volume naruto2 = new Volume(mangaNaruto, "Aprendendo jutsus","Kishimoto",23,"15.20");
-		mangaNaruto.adicionarLivro(naruto1);
-		mangaNaruto.adicionarLivro(naruto2);
+		Volume naruto1 = new Volume("Naruto conhece a vila", "Kishimoto", "25", 15.5, mangaNaruto);
+		Volume naruto2 = new Volume("Aprendendo jutsus", "Kishimoto", "23", 15, mangaNaruto);
 		Manga mangaDBZ = new Manga("DBZ", 100);
-		Volume dbz1 = new Volume(mangaDBZ, "Sayajin vai a terra","Toryama",17,"15.33");
-		mangaDBZ.adicionarLivro(dbz1);
-		Hq batman1 = new Hq("Batman surge", "Bob Kane",15,"15");
-		Estoque estoqueLoja = new Estoque("0");
-		estoqueLoja.venderDesconto(batman1, 0.1);
-		estoqueLoja.venderDesconto(dbz1, 0);
-		estoqueLoja.venderDesconto(mangaNaruto, 0.2);
-		
+		Volume dbz1 = new Volume("Sayajin vai a terra", "Toryama", "17", 15, mangaDBZ);
+		Hq batman1 = new Hq("Batman surge das trevas", "Bob Kane","15",25);
+		ControlaColecao controlaColecao = new ControlaColecao();
+		controlaColecao.adicionarLivro(dbz1, mangaDBZ);
+		controlaColecao.adicionarLivro(naruto1, mangaNaruto);
+		controlaColecao.adicionarLivro(naruto2, mangaNaruto);
+		ControlaSaldo controlaSaldo = new ControlaSaldo();
+		controlaSaldo.venderColecaoDesconto(mangaNaruto, 50);
+		controlaSaldo.venderColecaoDesconto(mangaDBZ, 50);
+		controlaSaldo.venderLivroDesconto(batman1, 45);
 	}
 
 }
