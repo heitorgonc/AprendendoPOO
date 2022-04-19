@@ -1,6 +1,6 @@
 package com.lojaLivros.modelos;
 
-import com.lojaLivros.abstratos.Colecao;
+import com.lojaLivros.moldes.Colecao;
 
 public class Manga  extends Colecao{
 	

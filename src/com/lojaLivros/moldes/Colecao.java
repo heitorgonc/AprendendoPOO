@@ -1,4 +1,4 @@
-package com.lojaLivros.abstratos;
+package com.lojaLivros.moldes;
 
 public abstract class Colecao{
 	

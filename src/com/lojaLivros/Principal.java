@@ -15,14 +15,13 @@ public class Principal {
 		Manga mangaDBZ = new Manga("DBZ", 100);
 		Volume dbz1 = new Volume("Sayajin vai a terra", "Toryama", "17", 15, mangaDBZ);
 		Hq batman1 = new Hq("Batman surge das trevas", "Bob Kane","15",25);
-		ControlaColecao controlaColecao = new ControlaColecao();
-		controlaColecao.adicionarLivro(dbz1, mangaDBZ);
-		controlaColecao.adicionarLivro(naruto1, mangaNaruto);
-		controlaColecao.adicionarLivro(naruto2, mangaNaruto);
+		ControlaColecao.adicionarLivro(dbz1, mangaDBZ);
+		ControlaColecao.adicionarLivro(naruto1, mangaNaruto);
+		ControlaColecao.adicionarLivro(naruto2, mangaNaruto);
 		ControlaSaldo controlaSaldo = new ControlaSaldo();
-		controlaSaldo.venderColecaoDesconto(mangaNaruto, 50);
-		controlaSaldo.venderColecaoDesconto(mangaDBZ, 50);
-		controlaSaldo.venderLivroDesconto(batman1, 45);
+		//controlaSaldo.venderColecaoDesconto(mangaNaruto, 50);
+		//controlaSaldo.venderColecaoDesconto(mangaDBZ, 50);
+		controlaSaldo.venderLivro(batman1);
 	}
 
 }
