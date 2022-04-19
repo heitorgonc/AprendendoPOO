@@ -1,6 +1,6 @@
 package com.lojaLivros.modelos;
 
-import com.lojaLivros.abstratos.Livro;
+import com.lojaLivros.moldes.Livro;
 
 public class Hq extends Livro{
 	

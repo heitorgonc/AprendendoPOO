@@ -1,15 +1,15 @@
 package com.lojaLivros.servicos;
 
-import com.lojaLivros.abstratos.Colecao;
-import com.lojaLivros.abstratos.Livro;
 import com.lojaLivros.interfaces.ColecionavelInterface;
+import com.lojaLivros.moldes.Colecao;
+import com.lojaLivros.moldes.Livro;
 
-public class ControlaColecao {
+public abstract class ControlaColecao {
 	
-	public void adicionarLivro(ColecionavelInterface novoLivro, Colecao colecao){
+	public static void adicionarLivro(ColecionavelInterface novoLivro, Colecao colecao){
 		if(novoLivro.exibirTituloColecao() == colecao.exibirTitulo()) {
 			Livro[] listaLivros = colecao.exibirLivros();
-			for(int i=0; listaLivros.length > i ; i++) {
+			for(int i=0; listaLivros.length > i; i++) {
 				if(listaLivros[i] == null) {
 					listaLivros[i] = (Livro) novoLivro;
 					System.out.println("Livro adicionado com sucesso!");
@@ -21,9 +21,13 @@ public class ControlaColecao {
 		return;
 	}
 	
-	public void apresentarColecao(Colecao colecao) {
+	public static void apresentarColecao(Colecao colecao) {
 		System.out.println("Título da Coleção: "+colecao.exibirTitulo());
 		System.out.println("Tamanho máximo da coleção: "+colecao.exibirLivros().length);
+		Livro[] listaLivros = colecao.exibirLivros();
+		for(int i=0; listaLivros.length > i; i++) {
+			ControlaLivro.apresentarLivro(listaLivros[i]);
+		}
 		return;
 	}
 

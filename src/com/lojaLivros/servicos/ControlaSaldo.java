@@ -1,7 +1,7 @@
 package com.lojaLivros.servicos;
 
-import com.lojaLivros.abstratos.Colecao;
-import com.lojaLivros.abstratos.Livro;
+import com.lojaLivros.moldes.Colecao;
+import com.lojaLivros.moldes.Livro;
 
 public class ControlaSaldo {
 	
@@ -19,7 +19,8 @@ public class ControlaSaldo {
 	public void venderLivro(Livro livro) {
 		saldo += livro.exibirValor();
 		System.out.println("Venda bem sucedida");
-		System.out.println("Valor: "+livro.exibirValor());
+		ControlaLivro.apresentarLivro(livro);
+		System.out.println("Valor da venda: "+livro.exibirValor());
 		this.mostrarSaldo();
 		return;
 	}
@@ -29,7 +30,8 @@ public class ControlaSaldo {
 		float valorDesconto = livro.exibirValor() - desconto;
 		saldo += valorDesconto;
 		System.out.println("Venda bem sucedida");
-		System.out.println("Valor com desconto: "+valorDesconto);
+		ControlaLivro.apresentarLivro(livro);
+		System.out.println("Valor da venda com desconto: "+valorDesconto);
 		this.mostrarSaldo();
 		return;
 	}
@@ -37,7 +39,8 @@ public class ControlaSaldo {
 	public void venderColecao(Colecao colecao) {
 		saldo += colecao.exibirValorTotal();
 		System.out.println("Venda bem sucedida");
-		System.out.println("Valor: "+colecao.exibirValorTotal());
+		ControlaColecao.apresentarColecao(colecao);
+		System.out.println("Valor da venda: "+colecao.exibirValorTotal());
 		this.mostrarSaldo();
 		return;
 	}
@@ -47,7 +50,8 @@ public class ControlaSaldo {
 		float valorTotalDesconto = colecao.exibirValorTotal() - desconto;
 		saldo += valorTotalDesconto;
 		System.out.println("Venda bem sucedida");
-		System.out.println("Valor com desconto: "+valorTotalDesconto);
+		ControlaColecao.apresentarColecao(colecao);
+		System.out.println("Valor da venda com desconto: "+valorTotalDesconto);
 		this.mostrarSaldo();
 		return;
 	}

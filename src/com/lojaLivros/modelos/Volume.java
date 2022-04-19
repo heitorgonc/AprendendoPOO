@@ -1,7 +1,7 @@
 package com.lojaLivros.modelos;
 
-import com.lojaLivros.abstratos.Livro;
 import com.lojaLivros.interfaces.ColecionavelInterface;
+import com.lojaLivros.moldes.Livro;
 
 public class Volume extends Livro implements ColecionavelInterface{
 	
