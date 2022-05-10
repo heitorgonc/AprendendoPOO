@@ -7,7 +7,7 @@ import com.lojaLivros.moldes.Livro;
 public abstract class ControlaColecao {
 	
 	public static void adicionarLivro(ColecionavelInterface novoLivro, Colecao colecao){
-		if(novoLivro.exibirTituloColecao() == colecao.exibirTitulo()) {
+		if(novoLivro.exibirColecao() == colecao){
 			Livro[] listaLivros = colecao.exibirLivros();
 			for(int i=0; listaLivros.length > i; i++) {
 				if(listaLivros[i] == null) {
@@ -17,8 +17,7 @@ public abstract class ControlaColecao {
 				}
 			}
 		}
-		System.out.println("Esse livro não pertence a essa coleção");
-		return;
+		throw new IllegalArgumentException("Esse livro não pertence a essa coleção");
 	}
 	
 	public static void apresentarColecao(Colecao colecao) {

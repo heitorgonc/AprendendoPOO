@@ -1,5 +1,6 @@
 package com.lojaLivros.servicos;
 
+import com.lojaLivros.exceptions.DescontoException;
 import com.lojaLivros.moldes.Colecao;
 import com.lojaLivros.moldes.Livro;
 
@@ -25,7 +26,10 @@ public class ControlaSaldo {
 		return;
 	}
 	
-	public void venderLivroDesconto(Livro livro, double porcentagem) {
+	public void venderLivroDesconto(Livro livro, double porcentagem) throws DescontoException{
+		if(livro.exibirValor() < 10) {
+			throw new DescontoException("Esse livro não pode receber desconto");
+		}
 		float desconto = livro.exibirValor() * ((float)porcentagem/100);
 		float valorDesconto = livro.exibirValor() - desconto;
 		saldo += valorDesconto;
@@ -45,7 +49,10 @@ public class ControlaSaldo {
 		return;
 	}
 	
-	public void venderColecaoDesconto(Colecao colecao, double porcentagem) {
+	public void venderColecaoDesconto(Colecao colecao, double porcentagem) throws DescontoException{
+		if(colecao.exibirValorTotal() < 20) {
+			throw new DescontoException("Essa coleção não pode receber desconto");
+		}
 		float desconto = colecao.exibirValorTotal() * ((float)porcentagem/100);
 		float valorTotalDesconto = colecao.exibirValorTotal() - desconto;
 		saldo += valorTotalDesconto;

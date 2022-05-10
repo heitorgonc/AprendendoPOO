@@ -1,8 +1,10 @@
 package com.lojaLivros.interfaces;
 
+import com.lojaLivros.moldes.Colecao;
+
 public interface ColecionavelInterface {
 	
-	public String exibirTituloColecao();
+	public Colecao exibirColecao();
 
 	
 }
