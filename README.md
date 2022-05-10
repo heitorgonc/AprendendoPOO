@@ -1,6 +1,6 @@
 <h1 align="center">Aprendendo POO</h1>
 
-<p align="center">Abstração, encapsulamento, herança, sobreposição, sobrecarga, polimorfismo e interface</p>
+<p align="center">Abstração, encapsulamento, herança, sobreposição, sobrecarga, polimorfismo, interfaces e exceptions</p>
 
 <p align="center">
  <a href="#preRequisitos">Pré Requisitos</a> •
@@ -18,6 +18,7 @@
 - [X] Sobrecarga
 - [X] Polimorfismo
 - [X] Interface
+- [X] Exceptions
 
 <h2 id="preRequisitos">Pré Requisitos</h2>
 
