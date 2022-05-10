@@ -10,5 +10,4 @@ public abstract class ControlaLivro {
 		System.out.println("Valor: "+livro.exibirValor());
 		System.out.println("Autor: "+livro.exibirAutor());
 	}
-
 }
