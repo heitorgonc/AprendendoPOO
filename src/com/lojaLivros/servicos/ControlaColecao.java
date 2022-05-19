@@ -1,33 +1,28 @@
 package com.lojaLivros.servicos;
 
-import com.lojaLivros.interfaces.ColecionavelInterface;
-import com.lojaLivros.moldes.Colecao;
+import com.lojaLivros.exceptions.TamMaxColecaoException;
+import com.lojaLivros.modelos.Colecao;
 import com.lojaLivros.moldes.Livro;
 
 public abstract class ControlaColecao {
 	
-	public static void adicionarLivro(ColecionavelInterface novoLivro, Colecao colecao){
-		if(novoLivro.exibirColecao() == colecao){
-			Livro[] listaLivros = colecao.exibirLivros();
-			for(int i=0; listaLivros.length > i; i++) {
-				if(listaLivros[i] == null) {
-					listaLivros[i] = (Livro) novoLivro;
-					System.out.println("Livro adicionado com sucesso!");
-					return;
-				}
-			}
+	public static Colecao criarColecao(int tamanhoColecao) {
+		try {
+			Colecao colecao = new Colecao(tamanhoColecao);
+			return colecao;
+		}catch(IllegalArgumentException e) {
+			Colecao colecao = null;
+			System.out.println("Não foi possivel criar essa coleção "+e.getMessage());
+			return colecao;
 		}
-		throw new IllegalArgumentException("Esse livro não pertence a essa coleção");
 	}
 	
-	public static void apresentarColecao(Colecao colecao) {
-		System.out.println("Título da Coleção: "+colecao.exibirTitulo());
-		System.out.println("Tamanho máximo da coleção: "+colecao.exibirLivros().length);
-		Livro[] listaLivros = colecao.exibirLivros();
-		for(int i=0; listaLivros.length > i; i++) {
-			ControlaLivro.apresentarLivro(listaLivros[i]);
+	public static void adicionarLivro(Colecao colecao, Livro livro) {
+		try {
+			colecao.adicionarLivro(livro);
+		}catch(TamMaxColecaoException e) {
+			System.out.println("Erro: "+e.getMessage());
 		}
-		return;
 	}
 
 }
